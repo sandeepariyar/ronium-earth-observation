@@ -1,0 +1,358 @@
+<!doctype html>
+<!-- RONIUM / EARTH — Sandeep Pariyar. Initial design in Figma; inspired by ICEYE. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RONIUM / EARTH — Interactive Earth Observation & Mission Explorer</title><meta name="author" content="Sandeep Pariyar"/><meta name="description" content="An interactive Earth observation and mission explorer by Sandeep Pariyar. Initially designed in Figma, inspired by ICEYE, built with React, Three.js and WebGL."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="motion.css" /></head>
+<body>
+
+<!-- ─────────────── background grid ─────────────── -->
+<div class="page-grid" aria-hidden="true"></div>
+
+<!-- ─────────────── top nav ─────────────── -->
+<header class="nav">
+  <div class="nav-brand">
+    <span class="logo-dot"></span>
+    <span>RONIUM / EARTH</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#brief" data-scramble>01 · Brief</a>
+    <a href="#constellation" data-scramble>02 · Constellation</a>
+    <a href="#technology" data-scramble>03 · Technology</a>
+    <a href="#capabilities" data-scramble>04 · Missions</a>
+    <a href="#numbers" data-scramble>05 · Experience</a>
+    <a href="#explorer" data-scramble>06 · Explore</a>
+  </nav>
+  <div class="nav-meta">
+    <span class="live-dot"></span>
+    <span>DEMO · <span data-hud="utc">2026-08-24T00:00:00Z</span></span>
+  </div>
+</header>
+
+<!-- ─────────────── HERO ─────────────── -->
+<section class="hero">
+  <div id="shader-bg"></div>
+  <div id="hero-canvas"></div><button class="globe-drag" aria-label="Rotate globe: drag horizontally or use arrow keys">DRAG TO EXPLORE ↔</button>
+  <div class="hero-vignette"></div>
+
+  <span class="tick-corner tl"></span>
+  <span class="tick-corner tr"></span>
+  <span class="tick-corner bl"></span>
+  <span class="tick-corner br"></span>
+
+  <div class="hud tl">
+    <div>MISSION <span class="hl" data-hud="sat">RONIUM-34</span></div>
+    <div>LAT <b data-hud="lat">+00.000°</b></div>
+    <div>LON <b data-hud="lon">+00.000°</b></div>
+  </div>
+  <div class="hud tr">
+    <div>MODE <span class="hl">SIMULATION</span></div>
+    <div>VIEW <b>ORBITAL</b></div>
+    <div>DATA <b>ILLUSTRATIVE</b></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="tick"></span>
+      <span>Independent exploration · 2026</span>
+      <span class="sig">◆ Space / Design / Earth Observation</span>
+    </div>
+
+    <h1>
+      Earth<br/>
+      <em>Intelligence.</em><br/>
+      A new perspective<span class="strike">.</span>
+    </h1>
+
+    <div class="hero-foot">
+      <p class="hf-lede"><b>RONIUM / EARTH</b> explores how we see a changing planet. Spatial interfaces, orbital motion, and public imagery — brought together to make complex systems understandable.</p>
+      <div class="hf-stat"><b>3D</b>Spatial exploration</div><div class="hf-stat"><b>04</b>Regions to explore</div><div class="hf-stat"><a href="#explorer"><b>EXPLORE ↗</b>Open mission console</a></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll · Descend to orbit</span>
+    <span class="bar"></span>
+  </div>
+</section>
+
+<!-- ─────────────── meta bar ─────────────── -->
+<div class="meta"><div class="row"><div class="cell">Project<b>RONIUM / EARTH</b></div><div class="cell">Focus<b>Earth observation</b></div><div class="cell">Author<b>Sandeep Pariyar</b></div><div class="cell">Edition<b>2026 / 01</b></div><div class="cell">Format<b>Interactive exploration</b></div><div class="cell">Status<b>Independent concept</b></div></div></div>
+</div>
+
+<!-- ─────────────── marquee ─────────────── -->
+<div class="marquee">
+  <div class="marquee-track"><span>EARTH OBSERVATION</span><span>SPATIAL INTELLIGENCE</span><span>ORBITAL EXPLORATION</span><span>PUBLIC IMAGERY</span><span>HUMAN CLARITY</span><span>FLOOD · WILDFIRE · MARITIME</span><span>EARTH OBSERVATION</span><span>SPATIAL INTELLIGENCE</span><span>ORBITAL EXPLORATION</span><span>PUBLIC IMAGERY</span><span>HUMAN CLARITY</span><span>FLOOD · WILDFIRE · MARITIME</span></div>
+</div>
+
+<!-- ─────────────── 01 THE BRIEF ─────────────── -->
+<section class="chapter brief" id="brief">
+  <div class="inner">
+    <div class="chapter-head">
+      <div class="chapter-num reveal">/ <span>01</span> — The Brief</div>
+      <div>
+        <h2 class="reveal">A changing planet.<br/><em>A clearer<br/>perspective.</em></h2>
+        <p class="chapter-lede reveal reveal-delay-1">
+          There is no shortage of information about our planet. The challenge is finding context: where to look, what changed, and what a signal can actually tell us. RONIUM makes that exploration tangible.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="brief-headline">
+      From distant signals. To visible patterns. To human understanding.
+    </h3>
+
+    <div class="brief-columns">
+      <div class="reveal">
+        <div class="kicker">◆ Objective</div>
+        <p><b>Make complexity legible.</b> Explore the relationship between orbital systems, imagery and decisions through a carefully designed spatial interface.</p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="kicker">◆ Approach</div>
+        <p><b>Build the experience.</b> Combine interactive graphics with a working public-imagery console. Keep simulated states and real data sources clearly distinguished.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── 02 CONSTELLATION ─────────────── -->
+<section class="chapter constellation" id="constellation">
+  <div class="inner">
+    <div class="constellation-stage">
+      <canvas id="constellation-canvas"></canvas>
+      <div class="constellation-overlay">
+        <div class="co-tl">
+          <div class="chapter-num">/ <span>02</span> — Constellation</div>
+          <h2 class="co-title" style="margin-top:20px">A moving system.<br/><em>A shared perspective.</em></h2>
+          <div class="co-sub">Move your cursor. Hover a node to inspect its state.</div>
+        </div>
+        <div class="co-tr">
+          <div class="co-data">
+            <span class="n"><em>48</em></span>
+            Illustrative orbital nodes
+          </div>
+          <div class="co-legend" style="margin-top:24px">
+            <div class="item"><span class="dot a"></span>Simulated · active</div>
+            <div class="item"><span class="dot b"></span>Simulated · idle</div>
+            <div class="item"><span class="dot c"></span>Simulated · relay</div>
+          </div>
+        </div>
+        <div class="co-bl">
+          <div class="co-data">
+            <span class="n">570 KM</span>
+            Illustrative altitude · not telemetry
+          </div>
+        </div>
+        <div class="co-br">
+          <div class="co-data">
+            <span class="n"><em>DEMO</em></span>
+            Orbital motion · simulated
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── 03 TECHNOLOGY ─────────────── -->
+<section class="chapter" id="technology">
+  <div class="inner">
+    <div class="chapter-head">
+      <div class="chapter-num reveal">/ <span>03</span> — Technology</div>
+      <div>
+        <h2 class="reveal">Signals become<br/><em>perspective.</em></h2>
+        <p class="chapter-lede reveal reveal-delay-1">
+          Different visual layers answer different questions. RONIUM pairs an orbital view with conceptual imagery to explore scale, patterns and context. The artwork below is conceptual illustration, not measured satellite or SAR data. Open the console for attributed NASA basemaps and optical imagery.
+        </p>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-tile dark reveal mask-reveal">
+        <img src="assets/orbital-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="dark-msg">◇ ORBITAL PERSPECTIVE · CONCEPT ART</div>
+        <div class="tag">Perspective / 01</div>
+        <div class="meta-line">
+          <span>View · Orbital</span>
+          <span>Conceptual illustration</span>
+        </div>
+      </div>
+      <div class="compare-tile reveal reveal-delay-1 mask-reveal">
+        <img src="assets/signal-v2.webp" data-loop="assets/signal-scan.gif" data-still="assets/signal-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="reticle" style="top:38%; left:34%"><div class="box"></div></div>
+        <div class="tag hl">Signal / 02</div>
+        <div class="meta-line">
+          <span>Pattern · Concept study</span>
+          <span>conceptual artwork</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-row">
+      <div class="cell a reveal mask-reveal">
+        <img src="assets/maritime-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="lab">◇ Sample · <b>Maritime · Concept artwork</b></div>
+      </div>
+      <div class="cell b reveal reveal-delay-1 mask-reveal">
+        <img src="assets/industrial-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="lab">◇ Sample · <b>Industrial · Concept artwork</b></div>
+      </div>
+      <div class="cell c reveal mask-reveal">
+        <img src="assets/infrastructure-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="lab">◇ Sample · <b>Infrastructure · Concept artwork</b></div>
+      </div>
+      <div class="cell d reveal reveal-delay-1 mask-reveal">
+        <img src="assets/landscape-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+        <div class="lab">◇ Archive · <b>Glacial rivers · Concept artwork</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── 04 CAPABILITIES ─────────────── -->
+<section class="chapter" id="capabilities">
+  <div class="inner">
+    <div class="chapter-head">
+      <div class="chapter-num reveal">/ <span>04</span> — Missions</div>
+      <div>
+        <h2 class="reveal">Six perspectives.<br/><em>One planet.</em></h2>
+        <p class="chapter-lede reveal reveal-delay-1">
+          Six interface studies explore how spatial context can support understanding. These are design scenarios, not operational monitoring services.
+        </p>
+      </div>
+    </div>
+
+    <div class="caps">
+      <div class="cap wide reveal">
+        <div>
+          <div class="cap-num">M · 01</div>
+          <h3>Mission exploration</h3>
+          <p>Explore a region, inspect its coordinates, and prepare a local simulated request in the mission console.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Interface study · illustrative</span><span class="cap-arrow">↗</span></div>
+      </div>
+
+      <div class="cap tall reveal reveal-delay-1">
+        <div>
+          <div class="cap-num">M · 02</div>
+          <h3>Flood<br/>Intelligence</h3>
+          <p>Explore how flood context could be presented clearly, with visible data origins and uncertainty.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Interface study · illustrative</span><span class="cap-arrow">↗</span></div>
+      </div>
+
+      <div class="cap reveal reveal-delay-2">
+        <div>
+          <div class="cap-num">M · 03</div>
+          <h3>Wildfire</h3>
+          <p>Study the visual language of changing landscapes and event-focused monitoring.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Interface study · illustrative</span><span class="cap-arrow">↗</span></div>
+      </div>
+
+      <div class="cap reveal">
+        <div>
+          <div class="cap-num">M · 04</div>
+          <h3>Maritime</h3>
+          <p>Bring shipping lanes and offshore infrastructure into a shared geographic context.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Ships · Ice</span><span class="cap-arrow">↗</span></div>
+      </div>
+
+      <div class="cap reveal reveal-delay-1">
+        <div>
+          <div class="cap-num">M · 05</div>
+          <h3>Infrastructure</h3>
+          <p>Explore regional assets through location, scale, and a clear inspection workflow.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Interface study · illustrative</span><span class="cap-arrow">↗</span></div>
+      </div>
+
+      <div class="cap wide reveal reveal-delay-2">
+        <div>
+          <div class="cap-num">M · 06</div>
+          <h3>Risk & resilience</h3>
+          <p>Consider how spatial information could help communicate exposure and uncertainty.</p>
+        </div>
+        <div class="cap-foot"><span>◇ Interface study · illustrative</span><span class="cap-arrow">↗</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── 05 FLOOD CASE ─────────────── -->
+<section class="case" id="case">
+  <div class="inner">
+    <div class="chapter-head">
+      <div class="chapter-num reveal">/ Field study — Flood context</div>
+      <div>
+        <h2 class="reveal">See the change.<br/><em>Understand</em><br/>the context.</h2>
+        <p class="chapter-lede reveal reveal-delay-1">
+          An illustrative study of how an interface could communicate a flood event. The artwork establishes a visual direction; the mission console provides a separate, attributed public-imagery view of the region.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-hero reveal mask-reveal">
+      <img src="assets/flood-v2.webp" alt="RONIUM conceptual Earth observation artwork — Conceptual illustration" loading="lazy" />
+      <div class="reticle"><div class="box"></div></div>
+      <div class="reticle reticle-2"><div class="box"></div></div>
+      <div class="caption">
+        <div class="l">
+          <b>Rio Grande do Sul · Brazil</b>
+          <span>Concept artwork · not observed flood extent</span>
+        </div>
+        <div class="r">
+          <b>29.51°S · 51.24°W</b>
+          <span>RONIUM · <span>ILLUSTRATIVE SCENARIO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-facts">
+      <div class="case-fact reveal">
+        <div class="k">◆ Coverage</div>
+        <div class="v">Begin with a region of interest and make the geographic context explicit.</div>
+      </div>
+      <div class="case-fact reveal reveal-delay-1">
+        <div class="k">◆ Signal</div>
+        <div class="v">Distinguish imagery, interpretation, and uncertainty at every stage.</div>
+      </div>
+      <div class="case-fact reveal reveal-delay-2">
+        <div class="k">◆ Impact</div>
+        <div class="v">Design for understandable exploration. No emergency guidance or validated flood analysis is provided.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── 06 NUMBERS ─────────────── -->
+<section class="numbers chapter" id="numbers"><div class="inner"><div class="chapter-head"><div class="chapter-num">/ 05 — The experience</div><div><h2>Built to explore.<br/><em>Designed for clarity.</em></h2><p class="chapter-lede">An independent design engineering project combining spatial visualization and a functional imagery explorer.</p></div></div><div class="numbers-grid"><div class="num"><div class="num-value"><em>04</em></div><div class="num-label">Regions</div><div class="num-desc">A choice of geographic contexts.</div></div><div class="num"><div class="num-value"><em>02</em></div><div class="num-label">Imagery layers</div><div class="num-desc">NASA basemap and MODIS optical imagery.</div></div><div class="num"><div class="num-value"><em>3D</em></div><div class="num-label">Spatial context</div><div class="num-desc">Illustrative orbital motion.</div></div><div class="num"><div class="num-value"><em>01</em></div><div class="num-label">Clear purpose</div><div class="num-desc">Make complex systems understandable.</div></div></div></div></section>
+
+<!-- ─────────────── recognition ─────────────── -->
+<section class="chapter" id="explorer"><div class="inner"><div class="chapter-head"><div class="chapter-num">/ 06 — Interactive explorer</div><div><h2>Your perspective.<br/><em>Your next move.</em></h2><p class="chapter-lede">Choose a region, explore public NASA imagery, and simulate a request. No satellite task is submitted.</p><a class="console-link" href="console/index.html#explorer" target="_blank">Open full mission console ↗</a></div></div><a class="console-preview" href="console/index.html" target="_blank"><img src="assets/console-v2.webp" alt="Concept artwork of maritime observation" loading="lazy"/><span>ENTER THE MISSION CONSOLE ↗</span></a></div></section>
+
+<!-- ─────────────── credits / footer ─────────────── -->
+<footer class="footer" id="credits">
+  <div class="inner">
+    <h2 class="footer-cta reveal">Make the<br/><em>impossible</em><br/>possible<span style="color:var(--signal)">.</span></h2>
+
+    <div class="footer-grid"><div class="footer-cell">Project<b>RONIUM / EARTH</b><span class="li">Independent portfolio exploration</span></div><div class="footer-cell">Author<b>Sandeep Pariyar</b><span class="li">Design engineering</span></div><div class="footer-cell">Experience<b>Spatial interfaces</b><span class="li">Interactive graphics · Public imagery</span></div><div class="footer-cell">Image credits<b>Concept artwork</b><span class="li">Conceptual illustrations from the RONIUM project</span><span class="li">Console imagery: NASA GIBS</span></div></div><div class="footer-sig">
+      <div>© 2026 · RONIUM / EARTH</div>
+      <div>An independent study inspired by ICEYE. Not affiliated with or endorsed by ICEYE or NASA. Orbits are simulated.</div>
+      <div><span data-hud="utc">—</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─────────────── scripts ─────────────── -->
+<script type="module" src="boot.js"></script>
+
+</body>
+</html>

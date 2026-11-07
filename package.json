@@ -1,0 +1,23 @@
+{
+  "name": "ronium-earth",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.7"
+  },
+  "author": "Sandeep Pariyar",
+  "description": "Interactive Earth observation and mission explorer, initially designed in Figma and inspired by ICEYE.",
+  "license": "MIT"
+}
