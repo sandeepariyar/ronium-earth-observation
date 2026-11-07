@@ -2,7 +2,20 @@
 
 **Designed and developed by Sandeep Pariyar.**
 
+**[Explore the live demo →](https://sandeepariyar.github.io/ronium-earth-observation/)** · [Open the mission console](https://sandeepariyar.github.io/ronium-earth-observation/console/index.html#explorer) · No sign-in required
+
+[![RONIUM live website — interactive globe and editorial Earth observation interface](docs/ronium-preview.jpg)](https://sandeepariyar.github.io/ronium-earth-observation/)
+
 A design engineering project that brings Earth observation into an interactive spatial experience. Explore an animated globe, inspect an illustrative constellation, and use a working mission console to view public NASA imagery across four regions.
+
+## A quick tour
+
+1. Drag the globe using the circular control, or focus it and use the arrow keys.
+2. Scroll through the constellation, imagery effects, and motion-led field study.
+3. Open the mission console, choose a region and imagery layer, and prepare a simulated request.
+4. Use **Back to RONIUM** to return. Motion can be paused at any time.
+
+**Skills demonstrated:** visual design in Figma, frontend development, spatial interaction, WebGL graphics, scroll choreography, accessible motion controls, and public imagery integration.
 
 ## Design origin
 
